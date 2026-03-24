@@ -435,7 +435,7 @@ const getListItemIndex = (eventOrElement, listElements) => {
     nearestParent &&
     matches(nearestParent, `.${cssClasses.LIST_ITEM_CLASS}`)
   ) {
-    return listElements.value.indexOf(nearestParent);
+    return listElements.indexOf(nearestParent);
   }
 
   return -1;
