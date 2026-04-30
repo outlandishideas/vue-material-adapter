@@ -8,17 +8,19 @@ export default {
   setup(props, { attrs, slots }) {
     return () => {
       const { outlined } = props;
+      const { class: classes, ...otherAttrs } = attrs;
 
       return h(
         'div',
         {
           class: [
+            classes,
             {
               'mdc-card': 1,
               'mdc-card--outlined': outlined,
             },
           ],
-          ...attrs,
+          ...otherAttrs,
         },
         slots.default?.(),
       );
