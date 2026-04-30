@@ -5,6 +5,7 @@ export const CustomLink = {
   props: {
     tag: String,
     to: [String, Object],
+    href: String,
   },
   setup(props, { slots, attrs }) {
     return () => {
