@@ -4,14 +4,13 @@ export const CustomLink = {
   name: 'custom-link',
   props: {
     tag: String,
-    to: [String, Object],
-    href: String,
+    to: [String, Object]
   },
   setup(props, { slots, attrs }) {
     return () => {
       // destructure the props in the render function so we use the current value
       // if their value has changed since we were created
-      const { to, href, tag } = props;
+      const { to, tag } = props;
 
       const routerLink = resolveDynamicComponent('router-link');
       if (to && routerLink) {
@@ -41,6 +40,7 @@ export const CustomLink = {
         );
       }
 
+      const { href } = attrs;
       const element = href ? 'a' : tag ?? 'a';
       const role = href
         ? 'button'
