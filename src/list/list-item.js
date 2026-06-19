@@ -57,6 +57,7 @@ export default {
     });
 
     const hasSecondaryText = hasSlot(slotNames.SECONDARY_TEXT);
+    const hasTernaryText = hasSlot(slotNames.TERNARY_TEXT);
     const hasStart = hasSlot(slotNames.START) && !!props.start;
     const hasEnd = hasSlot(slotNames.END) && !!props.end;
 
@@ -132,6 +133,7 @@ export default {
       hasEnd,
       isInteractive,
       hasSecondaryText,
+      hasTernaryText,
     };
   },
 };
