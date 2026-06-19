@@ -9,6 +9,7 @@ const slotNames = {
   START: 'start',
   END: 'end',
   SECONDARY_TEXT: 'secondary-text',
+  TERNARY_TEXT: 'ternary-text',
   GRAPHIC: 'graphic',
   META: 'meta',
 };
@@ -44,8 +45,15 @@ export default {
 
     const hasSlot = name => !!slots[name];
 
-    const isTwoLine = computed(() => {
-      return hasSlot(slotNames.SECONDARY_TEXT);
+    const extraLineCount = computed(() => {
+      let count = 0;
+      if (hasSlot(slotNames.SECONDARY_TEXT)) {
+        count++;
+      }
+      if (hasSlot(slotNames.TERNARY_TEXT)) {
+        count++;
+      }
+      return count;
     });
 
     const hasSecondaryText = hasSlot(slotNames.SECONDARY_TEXT);
@@ -58,8 +66,9 @@ export default {
       classes: {
         'mdc-list-item': 1,
         'mdc-list-item--disabled': props.disabled,
-        'mdc-list-item--with-one-line': !isTwoLine.value,
-        'mdc-list-item--with-two-lines': isTwoLine.value,
+        'mdc-list-item--with-one-line': extraLineCount.value == 0,
+        'mdc-list-item--with-two-lines': extraLineCount.value == 1,
+        'mdc-list-item--with-three-lines': extraLineCount.value == 2,
         [`mdc-list-item--with-leading-${props.start}`]: hasStart,
         [`mdc-list-item--with-trailing-${props.end}`]: hasEnd,
         'mdc-list-item--non-iteractive': !isInteractive,
@@ -116,7 +125,7 @@ export default {
       ...toRefs(uiState),
       focus,
       root,
-      isTwoLine,
+      extraLineCount,
       myAttrs: myAttributes,
       myItemId,
       hasStart,
