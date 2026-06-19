@@ -12,6 +12,9 @@
       <span class="mdc-list-item__secondary-text" v-if="hasSecondaryText"
         ><slot name="secondary-text"></slot
       ></span>
+      <span class="mdc-list-item__secondary-text" v-if="hasTernaryText"
+        ><slot name="ternary-text"></slot
+      ></span>
     </span>
 
     <span class="mdc-list-item__end" v-if="hasEnd">
