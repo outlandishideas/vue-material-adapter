@@ -238,6 +238,14 @@ export default {
         uiState.menuSurface.setAbsolutePosition(x, y);
       }
 
+      if (props.anchorCorner) {
+        uiState.menuSurface.setAnchorCorner(props.anchorCorner);
+      }
+
+      if (props.anchorMargin) {
+        uiState.menuSurface.setAnchorMargin(props.anchorMargin);
+      }
+
       foundation.setDefaultFocusState(props.defaultFocusState);
     });
 
