@@ -256,7 +256,7 @@ export default {
 
     watch(
       () => props.disabled,
-      nv => foundation?.updateDisabledStyle(nv),
+      nv => foundation?.setDisabled(nv),
     );
 
     watch(
