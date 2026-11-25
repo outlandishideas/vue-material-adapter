@@ -1,7 +1,7 @@
 {
   "name": "vue-material-adapter",
-  "version": "6.3.0",
-  "description": "Vue 3 wrapper arround Material Components for the Web",
+  "version": "6.3.1",
+  "description": "Vue 3 wrapper around Material Components for the Web",
   "keywords": [
     "vue",
     "vuejs",
@@ -29,10 +29,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/pgbross/vue-material-adapter.git"
+    "url": "https://github.com/outlandishideas/vue-material-adapter.git"
   },
   "bugs": {
-    "url": "https://github.com/pgbross/vue-material-adapter/issues"
+    "url": "https://github.com/outlandishideas/vue-material-adapter/issues"
   },
   "scripts": {
     "dev": "wireit",
