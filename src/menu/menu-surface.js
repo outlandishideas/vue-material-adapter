@@ -12,6 +12,7 @@ export default {
     'quick-open': Boolean,
     'anchor-corner': [String, Number],
     'anchor-margin': Object,
+    'max-height': Number
   },
   setup(props, { emit, slots, expose }) {
     const uiState = reactive({
@@ -179,12 +180,21 @@ export default {
       nv => foundation.setQuickOpen(nv),
     );
 
+    watch(
+      () => props.maxHeight,
+      nv => foundation.setMaxHeight(nv),
+    );
+
     onMounted(() => {
       foundation = new MDCMenuSurfaceFoundation({
         ...adapter,
         ...getFocusAdapterMethods(),
         ...getDimensionAdapterMethods(),
       });
+
+      if (props.maxHeight) {
+        foundation.setMaxHeight(props.maxHeight)
+      }
 
       foundation.init();
 
