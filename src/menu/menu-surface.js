@@ -11,8 +11,7 @@ export default {
     modelValue: [Boolean, Object],
     'quick-open': Boolean,
     'anchor-corner': [String, Number],
-    'anchor-margin': Object,
-    'max-height': Number
+    'anchor-margin': Object
   },
   setup(props, { emit, slots, expose }) {
     const uiState = reactive({
@@ -116,6 +115,8 @@ export default {
 
     const setAnchorMargin = margin => foundation.setAnchorMargin(margin);
 
+    const setMaxHeight = maxHeight => foundation.setMaxHeight(maxHeight);
+
     const setMenuSurfaceAnchorElement = element => (anchorElement = element);
 
     const show = options => foundation.open(options);
@@ -180,21 +181,12 @@ export default {
       nv => foundation.setQuickOpen(nv),
     );
 
-    watch(
-      () => props.maxHeight,
-      nv => foundation.setMaxHeight(nv),
-    );
-
     onMounted(() => {
       foundation = new MDCMenuSurfaceFoundation({
         ...adapter,
         ...getFocusAdapterMethods(),
         ...getDimensionAdapterMethods(),
       });
-
-      if (props.maxHeight) {
-        foundation.setMaxHeight(props.maxHeight)
-      }
 
       foundation.init();
 
@@ -215,6 +207,7 @@ export default {
       setAnchorCorner,
       setAnchorMargin,
       setMenuSurfaceAnchorElement,
+      setMaxHeight,
       show,
       hide,
       isOpen,
